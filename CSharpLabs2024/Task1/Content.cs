@@ -1,12 +1,11 @@
 namespace CSharpLabs2024.Task1
 {
-    public class Content(string text)
+    public class Content
     {
-        public string Text => text;
-
-        public void Show()
-        {
-            Console.WriteLine(text);
+        private string _text;
+        public string Text {
+            get => _text;
+            set => _text = value;
         }
     }
 

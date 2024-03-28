@@ -10,12 +10,12 @@ namespace CSharpLabs2024
         {
             Console.WriteLine("Task 1");
             
-            Book book = new Book("Володар перснів", "Ставницький", "Відкрита книга");
+            Book book = new Book("Володар перснів");
             
             book.Show();
             
-            book.Author = new Author("Дж. Р. Р. Толкін");
-            book.Content = new Content("У далекому королівстві...");
+            book.Author = "Дж. Р. Р. Толкін";
+            book.Content = "У далекому королівстві...";
 
             book.Show();
 

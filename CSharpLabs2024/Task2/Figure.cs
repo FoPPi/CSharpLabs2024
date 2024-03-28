@@ -31,14 +31,43 @@ namespace CSharpLabs2024.Task2
 
         public void PerimeterCalculator()
         {
+            if (!IsReal())
+            {
+                Console.WriteLine("Некоректні дані");
+                return;
+            }
+            
             double perimeter = 0;
             for (int i = 0; i < _points.Length - 1; i++)
             {
                 perimeter += LengthSide(_points[i], _points[i + 1]);
             }
             perimeter += LengthSide(_points[_points.Length - 1], _points[0]);
+            
+            string fullName = "";
+            for (int i = 0; i < _points.Length; i++)
+            {
+                fullName += _points[i].Name;
+            }
+            
+            Console.WriteLine($"Периметр {fullName}: {perimeter}");
+        }
 
-            Console.WriteLine($"Периметр {_points.Length}-кутника: {perimeter}");
+        public bool IsReal()
+        {
+            if (_points.Length < 3)
+                return false; 
+
+            
+            for (int i = 0; i < _points.Length - 1; i++)
+            {
+                if (LengthSide(_points[i], _points[i + 1]) == 0)
+                    return false;
+            }
+            if (LengthSide(_points[_points.Length - 1], _points[0]) == 0)
+                return false;
+            
+            return true;
         }
     }
 }
